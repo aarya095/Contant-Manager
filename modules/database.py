@@ -10,7 +10,8 @@ def connect_db():
 if __name__ == '__main__':
     conn = connect_db()
     cur = conn.cursor()
-    cur.execute("pragma table_info(contacts)")
+    #cur.execute("pragma table_info(contacts)")
+    cur.execute("select rowid from contacts")
     data = cur.fetchall()
     print(data)
 

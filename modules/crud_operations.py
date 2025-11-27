@@ -59,7 +59,26 @@ def update_contact():
 
 def delete_contact():
     """Deletes the contact entry"""
+    conn = db.connect_db()
+    cur = conn.cursor()
+
+    cur.execute("select * from contacts")
+    contacts_data = cur.fetchall()
+    
+    index = 1
+    for contact_data in contacts_data:
+        print(f"\n({index})", end='')
+        print(f" Name: {contact_data[0]}")
+        index += 1
+
+    name_input = input("\nWhose contact entry you want to delete? \n").lower().strip()
+
+    cur.execute("delete from contacts where name = ?", (name_input,))
+    conn.commit()
+
+    print(f"\nContact for index '{name_input}' deleted successfully!")
+    conn.close()
 
 if __name__ == '__main__':
-    update_contact()
+    delete_contact()
     view_contact()
