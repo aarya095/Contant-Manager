@@ -97,6 +97,8 @@ def search_name():
             matched_cases_list.append(name)
         if match_case == None:
             pass
+    if matched_cases_list == []:
+        print("No matches found.")
 
     conn = db.connect_db()
     cur = conn.cursor()

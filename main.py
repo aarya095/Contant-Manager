@@ -9,7 +9,7 @@ def main():
 
         print("\n------------------------\n")
         print("1. Create Contact \n2. Update Contact")
-        print("3. View Contact \n4. Delete Contact")
+        print("3. View Contact \n4. Delete Contact \n5. Search Contact")
         print("Enter 0 to exit.\n")
         operation_input = get_and_validate.get_and_validate_input_operation()
 
