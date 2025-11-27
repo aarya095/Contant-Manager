@@ -1,3 +1,5 @@
-contact_manager_design.drawio
-*.$contact_manager_design.drawio.bkp
+*.drawio
+*.drawio.bkp
 __pycache__/
+.venv/
+txt.py

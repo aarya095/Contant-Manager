@@ -1,10 +1,11 @@
 import modules.database as db
+import modules.get_and_validate_user_input as get_and_validate
 
 def create_contact():
     """Creates an entry of contact"""
-    name_input = input("Enter Name: ")
-    contact_num_input = int(input("Enter Contact Number: "))
-    email_input = input("Enter Email: ")
+    name_input = get_and_validate.get_and_validate_input_name()
+    contact_num_input = get_and_validate.get_and_validate_input_number()
+    email_input = get_and_validate.get_and_validate_input_email()
 
     conn = db.connect_db()
     cur = conn.cursor()
@@ -46,9 +47,9 @@ def update_contact():
         index += 1
     update_name_input = input("\nEnter contact name you want to update? \n").lower().strip()
 
-    name_input = input("Enter Name: ")
-    contact_num_input = int(input("Enter Contact Number: "))
-    email_input = input("Enter Email: ")
+    name_input = get_and_validate.get_and_validate_input_name()
+    contact_num_input = get_and_validate.get_and_validate_input_number()
+    email_input = get_and_validate.get_and_validate_input_email()
 
     cur.execute("update contacts set name = ?, contact_number = ?, " \
                 "email = ? where name = ?", (name_input, contact_num_input, 
@@ -72,12 +73,12 @@ def delete_contact():
         print(f" Name: {contact_data[0]}")
         index += 1
 
-    name_input = input("\nWhose contact entry you want to delete? \n").lower().strip()
+    name_input = input("\nEnter contact name you want to delete? \n").lower().strip()
 
     cur.execute("delete from contacts where name = ?", (name_input,))
     conn.commit()
 
-    print(f"\nContact for index '{name_input}' deleted successfully!")
+    print(f"\nContact for '{name_input}' deleted successfully!")
     conn.close()
 
 if __name__ == '__main__':

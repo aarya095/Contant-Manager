@@ -1,4 +1,5 @@
 import modules.crud_operations as crud
+import modules.get_and_validate_user_input as get_and_validate
 
 def main():
     """Main function"""
@@ -10,7 +11,7 @@ def main():
         print("\n1. Create Contact \n2. Update Contact")
         print("3. View Contact \n4. Delete Contact")
         print("Enter 0 to exit.\n")
-        operation_input = int(input("Select the operation you want to perform: "))
+        operation_input = get_and_validate.get_and_validate_input_operation()
 
         if operation_input == 0:
             break
