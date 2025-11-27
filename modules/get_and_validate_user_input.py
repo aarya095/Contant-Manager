@@ -73,14 +73,14 @@ def get_and_validate_input_name():
         
 def get_and_validate_input_operation():
     """Gets and Validates the input operation"""
-    user_operation_choice_validation = [0,1,2,3,4]
+    user_operation_choice_validation = [0,1,2,3,4,5]
     while True:
         try:
-            user_choice = int(input("Select the operation index [i.e. 0, 1, 2, 3, or 4] you want to perform: "))
+            user_choice = int(input("Select the operation index [i.e. 0, 1, 2, 3, 4, or 5]: "))
             if user_choice in user_operation_choice_validation:
                 break
             if user_choice not in user_operation_choice_validation:
-                print("Please input either 0, 1, 2, 3 or 4.")
+                print("Please input either 0, 1, 2, 3, 4 or 5.")
 
         except ValueError:
             print("Invalid Input! Please provide an integer.")
