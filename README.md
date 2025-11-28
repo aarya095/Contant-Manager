@@ -53,8 +53,12 @@
 <hr>
 
 <h2>CLI Preview</h2>
+<p>Introductory Message</p>
 <img width="600" alt="Screenshot_20251128_163608" src="https://github.com/user-attachments/assets/f6b08f30-2cbc-4f38-80a3-75a505861d90" />
+<p>Create Entry Demo</p>
 <img width="420" alt="Screenshot_20251128_164322" src="https://github.com/user-attachments/assets/8116044a-5c08-47f3-a698-c8a727e5544a" />
+<p>View Entry Demo</p>
+<img width="330" alt="Screenshot_20251128_164507" src="https://github.com/user-attachments/assets/badc984e-65f0-4455-a817-d7028f6df467" />
 
 
 
