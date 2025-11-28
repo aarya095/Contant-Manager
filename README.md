@@ -123,3 +123,16 @@ python main.py
 
 <h2>Export Output Example</h2>
 <p>The contacts are exported as JSON to <code>contacts_data.json</code>.</p>
+
+<h2>Requirements</h2>
+<ul>
+  <li>Python 3.x</li>
+</ul>
+
+<hr>
+
+<h2>Author</h2>
+<p>
+<b>Aarya</b><br>
+IT Engineering student | Building in Full Stack Development and Cybersecurity
+</p>
