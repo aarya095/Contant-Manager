@@ -5,6 +5,18 @@
   The application functions through an indexed menu system—select an operation by entering its corresponding number.
 </p>
 
+<h2>Navigate</h2>
+<ul>
+  <li><a href="#features">Features</a></li>
+  <li><a href="#cli-preview">Installation</a></li>
+  <li><a href="#database">Usage</a></li>
+  <li><a href="#validation-and-utilities">Available Operations</a></li>
+  <li><a href="#project-structure">Database Schema</a></li>
+  <li><a href="#usage">Encryption & Validation</a></li>
+  <li><a href="#requirements">File Structure</a></li>
+  <li><a href="#author">Output / Screenshots</a></li>
+</ul>
+
 <h2>Features</h2>
 
 <h3>Available Operations</h3>
@@ -105,7 +117,7 @@
 <hr>
 
 <h2>Project Structure</h2>
-
+<pre>
 <ul>
   <li>contacts_data.db</li>
   <li>contacts_data.json</li>
@@ -121,6 +133,7 @@
   <li>README.md</li>
   <li>requirements.txt</li>
 </ul>
+</pre>
 
 <ul>
   <li>
@@ -161,12 +174,15 @@ python main.py
 <h2>Requirements</h2>
 <ul>
   <li>Python 3.x</li>
+  <li>cryptography==46.0.3</li>
+  <li>validators==0.35.0</li>
+  <li>dotenv==0.9.9</li>
 </ul>
 
 <hr>
 
 <h2>Author</h2>
 <p>
-<b>Aarya</b><br>
+<b>Aarya Sarfare</b><br>
 IT Engineering student | Building in Full Stack Development and Cybersecurity
 </p>
