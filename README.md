@@ -123,7 +123,6 @@ contacts_data.db
 contacts_data.json
 requirements.txt
 main.py
-txt.py
 modules/
 ├── __init__.py
 ├── database.py
