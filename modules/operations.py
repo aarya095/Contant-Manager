@@ -1,5 +1,6 @@
 import re
 import subprocess
+import json
 import modules.database as db
 import modules.get_and_validate_user_input as get_and_validate
 import modules.encryption as en
@@ -182,13 +183,41 @@ def search_name():
         conn.close()
 
 def remove_unwanted_env_entries(name_input):
-    # Removing the keys from .env file 
+    """Removing the keys from .env file""" 
     name_of_email_key = f"KEY_OF_EMAIL_{name_input.upper()}"
     name_of_key = f"KEY_OF_{name_input.upper()}"
     command_to_remove_email_key = f"dotenv unset {name_of_email_key}"
     command_to_remove_key = f"dotenv unset {name_of_key}"
     res1 = subprocess.run(command_to_remove_email_key, shell=True, capture_output=True)
     res1 = subprocess.run(command_to_remove_key, shell=True, capture_output=True)
+
+def export_contacts_data():
+    """Exports all the data to a json file"""
+
+    contacts_data_json = [] # list which will contain all the contacts info
+    conn = db.connect_db()
+    cur = conn.cursor()
+
+    cur.execute("select * from contacts")
+    contacts_data = cur.fetchall()
+
+    for contact_data in contacts_data:
+        #Loop for adding data to contacts_data_json
+        original_contact_num = en.recreate_original_contact_num(contact_data[0])
+        original_email = en.recreate_original_email(contact_data[0])
+
+        contacts_data_json.append({'Name': contact_data[0],
+                                   'Contact Number': original_contact_num,
+                                   'Email': original_email})
+
+    conn.close()
+    already_existing_names_list = get_and_validate.generate_list_of_already_used_names()
+    if len(already_existing_names_list) == 0:
+        print("No Entries!")
+
+    with open('contacts_data.json','w') as f:
+        json.dump(contacts_data_json, f)
+    print("\nData exported to contacts.json file successfully!")
         
 def help():
     """Provides the user manual"""
@@ -202,19 +231,19 @@ def help():
     print("   Use this option to add a new contact. You will be prompted for required fields.")
     print()
     print("2. Update Contact")
-    print("   Use this to modify an existing contact. You must enter a valid contact index.")
+    print("   Use this to modify an existing contact. You must enter an existing contact name.")
     print()
     print("3. View Contact")
-    print("   Displays the details of a specific contact. Input the contact index when asked.")
+    print("   Lists every stored contact in order.")
     print()
     print("4. Delete Contact")
     print("   Removes a contact permanently. Requires the contact index.")
     print()
     print("5. Search Contact")
-    print("   Allows searching by name or other supported fields.")
+    print("   Allows searching by name.")
     print()
-    print("6. View All Contacts")
-    print("   Lists every stored contact in order.")
+    print("6. Export Contacts")
+    print("   Exports all the contact information to contacts_data.json file.")
     print()
     print("7. Help")
     print("   Displays this manual.")
