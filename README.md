@@ -56,8 +56,8 @@
 
 <p>
   The application uses <b>SQLite3</b> for storage.  
-  Schema:
 </p>
+<p>Schema:</p>
 
 <pre>
 [(0, 'name', 'TEXT', 0, None, 0),
