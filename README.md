@@ -117,22 +117,19 @@
 <hr>
 
 <h2>Project Structure</h2>
+
 <pre>
-<ul>
-  <li>contacts_data.db</li>
-  <li>contacts_data.json</li>
-  <li>main.py</li>
-  <li>modules
-    <ul>
-      <li>database.py</li>
-      <li>encryption.py</li>
-      <li>get_and_validate_user_input.py</li>
-      <li>operations.py</li>
-    </ul>
-  </li>
-  <li>README.md</li>
-  <li>requirements.txt</li>
-</ul>
+contacts_data.db
+contacts_data.json
+requirements.txt
+main.py
+txt.py
+modules/
+├── __init__.py
+├── database.py
+├── encryption.py
+├── get_and_validate_user_input.py
+└── operations.py
 </pre>
 
 <ul>
