@@ -7,7 +7,7 @@
 
 <h2>📌 Navigate</h2>
 <ul>
-  <li><a href="#✨-features">Features</a></li>
+  <li><a href="#features">Features</a></li>
   <li><a href="#💻-cli-preview">CLI Preview</a></li>
   <li><a href="#database">Database Schema</a></li>
   <li><a href="#validation-and-utilities">Validation and Utilities</a></li>
@@ -17,7 +17,7 @@
   <li><a href="#author">Author</a></li>
 </ul>
 
-<h2>✨ Features</h2>
+<h2>Features</h2>
 
 <h3>Available Operations</h3>
 <ol>
