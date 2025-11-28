@@ -8,13 +8,13 @@
 <h2>Navigate</h2>
 <ul>
   <li><a href="#features">Features</a></li>
-  <li><a href="#cli-preview">Installation</a></li>
-  <li><a href="#database">Usage</a></li>
-  <li><a href="#validation-and-utilities">Available Operations</a></li>
-  <li><a href="#project-structure">Database Schema</a></li>
-  <li><a href="#usage">Encryption & Validation</a></li>
-  <li><a href="#requirements">File Structure</a></li>
-  <li><a href="#author">Output / Screenshots</a></li>
+  <li><a href="#cli-preview">CLI Preview</a></li>
+  <li><a href="#database">Database Schema</a></li>
+  <li><a href="#validation-and-utilities">Validation and Utilities</a></li>
+  <li><a href="#project-structure">Project Structure</a></li>
+  <li><a href="#usage">Usage</a></li>
+  <li><a href="#requirements">Requirements</a></li>
+  <li><a href="#author">Author</a></li>
 </ul>
 
 <h2>Features</h2>
