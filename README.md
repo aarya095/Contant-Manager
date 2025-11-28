@@ -58,9 +58,18 @@
 <p>Create Entry Demo</p>
 <img width="420" alt="Screenshot_20251128_164322" src="https://github.com/user-attachments/assets/8116044a-5c08-47f3-a698-c8a727e5544a" />
 <p>View Entry Demo</p>
-<img width="330" alt="Screenshot_20251128_164507" src="https://github.com/user-attachments/assets/badc984e-65f0-4455-a817-d7028f6df467" />
-
-
+<img width="330" alt="Screenshot_20251128_164736" src="https://github.com/user-attachments/assets/a886447a-918f-447c-a134-1404a315c6bd" />
+<p>Update Entry Demo</p>
+<img width="420" alt="Screenshot_20251128_164918" src="https://github.com/user-attachments/assets/6bc5f74b-5861-4398-93f4-11a78001af01" />
+<p>Delete Entry Demo</p>
+<img width="440" alt="Screenshot_20251128_165028" src="https://github.com/user-attachments/assets/f763535b-fd50-4214-a09e-2b12b2e934bf" />
+<p>Search Demo</p>
+<img width="410" alt="Screenshot_20251128_165139" src="https://github.com/user-attachments/assets/32efdd7a-783f-4213-a037-d694bf2b7065" />
+<p>Exporting to json</p>
+<img width="505" height="100" alt="Screenshot_20251128_165233" src="https://github.com/user-attachments/assets/f5eb7eb4-6072-47f6-ab93-d3f120a94ffd" />
+<pre>[{"Name": "india", "Contact Number": "1231231231", "Email": "india@qwe.qwe"}, 
+  {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, 
+  {"Name": "aditi", "Contact Number": "9874560984", "Email": "aditi@email.com"}]</pre>
 
 <hr>
 
@@ -132,9 +141,6 @@ python main.py
 </pre>
 
 <hr>
-
-<h2>Export Output Example</h2>
-<p>The contacts are exported as JSON to <code>contacts_data.json</code>.</p>
 
 <h2>Requirements</h2>
 <ul>
