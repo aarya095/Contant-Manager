@@ -1,0 +1,125 @@
+<h1>Contact Manager (CLI)</h1>
+
+<p>
+  A command-line Contact Manager built in Python, designed for simple and efficient CRUD operations.  
+  The application functions through an indexed menu system—select an operation by entering its corresponding number.
+</p>
+
+<h2>Features</h2>
+
+<h3>Available Operations</h3>
+<ol>
+  <li>
+    <b>Create Contact</b><br>
+    Adds a new contact. User is prompted for required fields.
+  </li>
+  <li>
+    <b>Update Contact</b><br>
+    Modifies an existing contact. Requires an existing contact name.
+  </li>
+  <li>
+    <b>View Contact</b><br>
+    Displays all stored contacts in order.
+  </li>
+  <li>
+    <b>Delete Contact</b><br>
+    Permanently removes a contact. Requires the contact index.
+  </li>
+  <li>
+    <b>Search Contact</b><br>
+    Allows searching by name using regex-based lookup.
+  </li>
+  <li>
+    <b>Export Contacts</b><br>
+    Exports all contact data to <code>contacts_data.json</code>.
+  </li>
+  <li>
+    <b>Help</b><br>
+    Displays the application's manual.
+  </li>
+  <li>
+    <b>Exit</b><br>
+    Closes the application.
+  </li>
+</ol>
+
+<h3>Instructions</h3>
+<ul>
+  <li>Enter only integer indices.</li>
+  <li>Invalid inputs trigger an error message; re-enter a valid number.</li>
+  <li>Follow on-screen prompts for each operation.</li>
+</ul>
+
+<hr>
+
+<h2>Database</h2>
+
+<p>
+  The application uses <b>SQLite3</b> for storage.  
+  Schema:
+</p>
+
+<pre>
+[(0, 'name', 'TEXT', 0, None, 0),
+ (1, 'contact_number', 'INT', 0, None, 0),
+ (2, 'email', 'TEXT', 0, None, 0)]
+</pre>
+
+<p>
+  The <b>contact number</b> and <b>email</b> fields are stored in encrypted form using <b>Fernet</b> from the <code>cryptography</code> package.
+  Their keys are stored in a <code>.env</code> file and loaded using <code>python-dotenv</code>.
+</p>
+
+<hr>
+
+<h2>Validation and Utilities</h2>
+
+<ul>
+  <li><b>Email Validation:</b> Implemented using the <code>validators</code> package.</li>
+  <li><b>Exporting:</b> Performed via the <code>json</code> module and standard file operations.</li>
+  <li><b>Search:</b> Uses the <code>re</code> module with the <code>search()</code> function and <code>IGNORECASE</code>.</li>
+  <li><b>CRUD:</b> Full create, read, update, delete functionality is implemented.</li>
+</ul>
+
+<hr>
+
+<h2>Project Structure</h2>
+
+<ul>
+  <li>
+    <b>database.py</b><br>
+    Handles SQLite3 connection and database queries.
+  </li>
+  <li>
+    <b>get_and_validate_user_input.py</b><br>
+    Contains input validation functions used across the application.
+  </li>
+  <li>
+    <b>encryption.py</b><br>
+    Provides encryption and decryption for email and contact number.
+  </li>
+  <li>
+    <b>operations.py</b><br>
+    Implements all CRUD operations, search, export, and help functionality.
+  </li>
+  <li>
+    <b>main.py</b><br>
+    Runs the entire application coherently.
+  </li>
+</ul>
+
+<hr>
+
+<h2>Usage</h2>
+<p>
+  Run the application:
+</p>
+
+<pre>
+python main.py
+</pre>
+
+<hr>
+
+<h2>Export Output Example</h2>
+<p>The contacts are exported as JSON to <code>contacts_data.json</code>.</p>
