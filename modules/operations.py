@@ -176,7 +176,7 @@ def search_name():
             original_email = en.recreate_original_email(contact_data[0])
 
             print("\nResults:")
-            print(f"\nName: {contact_data[0]}")
+            print(f"\nName: {contact_data[0].title()}")
             print(f"Contact Number: {original_contact_num}")
             print(f"Email: {original_email}")
 
