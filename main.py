@@ -1,13 +1,16 @@
 import modules.operations as op
 import modules.get_and_validate_user_input as get_and_validate
+from colorama import Fore
 
 def main():
     """Main function"""
-    print("\nWelcome To Contant Manager!")
-
+    print(Fore.LIGHTGREEN_EX)
+    print("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
+    print("| Welcome To Contant Manager! |")
+    print("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
     while True:
 
-        print("\n------------------------\n")
+        print(Fore.LIGHTCYAN_EX + "------------------------\n")
         print("1. Create Contact \n2. Update Contact")
         print("3. View Contact \n4. Delete Contact \n5. Search Contact")
         print("Enter 0 to exit | Enter 6 to export data | Enter 7 for help.\n")
@@ -38,7 +41,11 @@ def main():
         elif operation_input == 7:
             op.help()
 
-    print("\nThanks for using Contact Manager!\n")
+    print("\n------------------------")
+
+    print(Fore.LIGHTGREEN_EX + "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
+    print("| Thanks for using Contact Manager! |")
+    print("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
 
 if __name__ == '__main__':
     main()
