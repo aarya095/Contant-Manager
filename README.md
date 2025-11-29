@@ -66,7 +66,7 @@
 
 <h2>CLI Preview</h2>
 <p>Introductory Message</p>
-<img width="600" alt="Intro Message" src="https://github.com/user-attachments/assets/f6b08f30-2cbc-4f38-80a3-75a505861d90" />
+<img width="600" alt="Intro Message" src="https://github.com/user-attachments/assets/217f540d-c79e-4414-adb5-dc99c8db4697" />
 <p>Create Entry Demo</p>
 <img width="420" alt="Create Entry" src="https://github.com/user-attachments/assets/8116044a-5c08-47f3-a698-c8a727e5544a" />
 <p>View Entry Demo</p>
@@ -80,7 +80,8 @@
 <p>Exporting to JSON</p>
 <img width="505" height="100" alt="Export JSON" src="https://github.com/user-attachments/assets/f5eb7eb4-6072-47f6-ab93-d3f120a94ffd" />
 <pre>[{"Name": "india", "Contact Number": "1231231231", "Email": "india@qwe.qwe"}, 
-  {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, 
+  {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, <img width="614" height="264" alt="Screenshot_20251129_192036" src="https://github.com/user-attachments/assets/51de6bc4-b00e-4826-8b94-e5246eb0f65c" />
+
   {"Name": "aditi", "Contact Number": "9874560984", "Email": "aditi@email.com"}]</pre>
 
 <hr>
