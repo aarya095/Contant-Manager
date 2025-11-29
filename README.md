@@ -76,17 +76,13 @@
 <p>Delete Entry Demo</p>
 <img width="435"alt="Delete Entry" src="https://github.com/user-attachments/assets/2a1db5bb-37e3-4e9a-90f5-2753c251929e" />
 <p>Search Demo</p>
-
-
-<img width="410" alt="Search Entry" src="https://github.com/user-attachments/assets/32efdd7a-783f-4213-a037-d694bf2b7065" />
+<img width="400" alt="Search Entry" src="https://github.com/user-attachments/assets/a27342ae-a6b7-4982-a661-d38b7f30252d" />
 <p>Exporting to JSON</p>
-
-
-<img width="505" height="100" alt="Export JSON" src="https://github.com/user-attachments/assets/f5eb7eb4-6072-47f6-ab93-d3f120a94ffd" />
+<img width="500" alt="Export JSON" src="https://github.com/user-attachments/assets/f5e02ead-071a-464d-b76a-ff02fc0e220f" />
 <pre>[{"Name": "india", "Contact Number": "1231231231", "Email": "india@qwe.qwe"}, 
-  {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, <img width="614" height="264" alt="Screenshot_20251129_192036" src="https://github.com/user-attachments/assets/51de6bc4-b00e-4826-8b94-e5246eb0f65c" />
-
-  {"Name": "aditi", "Contact Number": "9874560984", "Email": "aditi@email.com"}]</pre>
+  {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, 
+  {"Name": "omkar", "Contact Number": "9874569874", "Email": "omkar_90@hotmail.in"}, 
+  {"Name": "harsh", "Contact Number": "4564564564", "Email": "harsh_01@email.com"}]</pre>
 
 <hr>
 
@@ -157,6 +153,7 @@ python main.py
   <li>🔑 cryptography==46.0.3</li>
   <li>📧 validators==0.35.0</li>
   <li>📝 dotenv==0.9.9</li>
+  <li>▶️ colorama==0.4.6</li>
 </ul>
 
 <hr>
