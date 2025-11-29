@@ -1,16 +1,16 @@
 import modules.operations as op
 import modules.get_and_validate_user_input as get_and_validate
-from colorama import Fore
+from colorama import Fore, Style
 
 def main():
     """Main function"""
     print(Fore.LIGHTGREEN_EX)
-    print("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
-    print("| Welcome To Contant Manager! |")
-    print("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
+    print("╔═╗┌─┐┌┐┌┌─┐┌─┐┌┬┐ ╔╦╗┌─┐┌┐┌┌─┐┌─┐┌─┐┬─┐")   
+    print("║  │ ││││├─┤│   │  ║║║├─┤│││├─┤│ ┬├┤ ├┬┘")
+    print("╚═╝└─┘┘└┘┴ ┴└─┘ ┴  ╩ ╩┴ ┴┘└┘┴ ┴└─┘└─┘┴└─")
     while True:
 
-        print(Fore.LIGHTCYAN_EX + "------------------------\n")
+        print(Fore.LIGHTCYAN_EX, Style.BRIGHT + "------------------------\n")
         print("1. Create Contact \n2. Update Contact")
         print("3. View Contact \n4. Delete Contact \n5. Search Contact")
         print("Enter 0 to exit | Enter 6 to export data | Enter 7 for help.\n")
@@ -41,11 +41,12 @@ def main():
         elif operation_input == 7:
             op.help()
 
-    print("\n------------------------")
+    print("\n------------------------", end="")
 
-    print(Fore.LIGHTGREEN_EX + "|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
-    print("| Thanks for using Contact Manager! |")
-    print("|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|")
+    print(Fore.LIGHTGREEN_EX)
+    print("╔═╗┌─┐┌─┐┬  ┬┌─┐┌─┐┌┬┐┬┌─┐┌┐┌  ╔═╗┬  ┌─┐┌─┐┌─┐┌┬┐")
+    print("╠═╣├─┘├─┘│  ││  ├─┤ │ ││ ││││  ║  │  │ │└─┐├┤  ││")
+    print("╩ ╩┴  ┴  ┴─┘┴└─┘┴ ┴ ┴ ┴└─┘┘└┘  ╚═╝┴─┘└─┘└─┘└─┘─┴┘\n")
 
 if __name__ == '__main__':
     main()
