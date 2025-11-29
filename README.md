@@ -72,12 +72,16 @@
 <p>View Entry Demo</p>
 <img width="320" alt="View Entry" src="https://github.com/user-attachments/assets/feb830cd-e1b4-4f75-9468-98c07e76a807" />
 <p>Update Entry Demo</p>
-<img width="420" alt="Update Entry" src="https://github.com/user-attachments/assets/6bc5f74b-5861-4398-93f4-11a78001af01" />
+<img width="420" alt="Update Entry" src="https://github.com/user-attachments/assets/6ff5c4b4-de38-466b-b4cf-2e71fa253378" />
 <p>Delete Entry Demo</p>
-<img width="440" alt="Delete Entry" src="https://github.com/user-attachments/assets/f763535b-fd50-4214-a09e-2b12b2e934bf" />
+<img width="435"alt="Delete Entry" src="https://github.com/user-attachments/assets/2a1db5bb-37e3-4e9a-90f5-2753c251929e" />
 <p>Search Demo</p>
+
+
 <img width="410" alt="Search Entry" src="https://github.com/user-attachments/assets/32efdd7a-783f-4213-a037-d694bf2b7065" />
 <p>Exporting to JSON</p>
+
+
 <img width="505" height="100" alt="Export JSON" src="https://github.com/user-attachments/assets/f5eb7eb4-6072-47f6-ab93-d3f120a94ffd" />
 <pre>[{"Name": "india", "Contact Number": "1231231231", "Email": "india@qwe.qwe"}, 
   {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, <img width="614" height="264" alt="Screenshot_20251129_192036" src="https://github.com/user-attachments/assets/51de6bc4-b00e-4826-8b94-e5246eb0f65c" />
