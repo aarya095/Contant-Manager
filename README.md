@@ -35,7 +35,7 @@
   </li>
   <li>
     ❌ <b>Delete Contact</b><br>
-    Permanently removes a contact. Requires the contact index.
+    Permanently removes a contact. Requires an existing contact name.
   </li>
   <li>
     🔍 <b>Search Contact</b><br>
