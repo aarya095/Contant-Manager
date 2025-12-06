@@ -21,19 +21,21 @@ def decrypt(encrypted_contact_info, key):
 
 def stores_encrypted_contact_num_in_db(encrypted_contact_info, name):
     """Stores the encrypted_contact_info in the sqlite3 db"""
-
     conn = db.connect_db()
+
     cur = conn.cursor()
     cur.execute("update contacts set contact_number = ? where name = ?", (encrypted_contact_info, name))
+    
     conn.commit()
     conn.close()
 
 def stores_encrypted_email_in_db(encrypted_contact_info, name):
     """Stores the encrypted_contact_info in the sqlite3 db"""
-
     conn = db.connect_db()
+
     cur = conn.cursor()
     cur.execute("update contacts set email = ? where name = ?", (encrypted_contact_info, name))
+
     conn.commit()
     conn.close()
 
@@ -62,6 +64,7 @@ def retrieve_encrypted_number_from_db(name):
 
     cur.execute("select contact_number from contacts where name = ?", (name,))
     encrypted_contact_number = cur.fetchone()
+
     conn.commit()
     conn.close()
 
@@ -74,6 +77,7 @@ def retrieve_encrypted_email_from_db(name):
 
     cur.execute("select email from contacts where name = ?", (name,))
     encrypted_email = cur.fetchone()
+
     conn.commit()
     conn.close()
 
@@ -91,6 +95,7 @@ def retrieve_contact_num_key_from_env_file(name):
             break
     # encoding the key as decrypt() function expects a bytes object
     key_for_contact_number = key_for_contact_number.encode('utf-8')
+    
     return key_for_contact_number
 
 def retrieve_email_key_from_env_file(name):
@@ -105,14 +110,17 @@ def retrieve_email_key_from_env_file(name):
             break
     # encoding the key as decrypt() function expects a bytes object
     key_for_email = key_for_email.encode('utf-8')
+
     return key_for_email
 
 def recreate_original_contact_num(name):
     """Takes the key and encrypted contact number and returns the decrypted contact number"""
     #Retrieves the contact number and decrypts it via its key in .env file
     key_for_contact_num = retrieve_contact_num_key_from_env_file(name)
+
     encrypted_contact_num_tuple = retrieve_encrypted_number_from_db(name)
     encrypted_contact_num = encrypted_contact_num_tuple[0]
+    
     original_contact_num = decrypt(encrypted_contact_num, key_for_contact_num)
     original_contact_num = original_contact_num.decode('utf-8') # decodes the contact number otherwise it shows b'contact number' which is not preferred
 
@@ -120,10 +128,12 @@ def recreate_original_contact_num(name):
 
 def recreate_original_email(name):
     """Takes the key and encrypted email and returns the decrypted email"""
-            #Retrieves the email and decrypts it via its key in .env file
+    #Retrieves the email and decrypts it via its key in .env file
     key_for_email = retrieve_email_key_from_env_file(name)
+
     encrypted_email_tuple = retrieve_encrypted_email_from_db(name)
     encrypted_email = encrypted_email_tuple[0]
+
     original_email = decrypt(encrypted_email, key_for_email)
     original_email = original_email.decode('utf-8') # decodes the email otherwise it shows b'email' which is not preferred
 
