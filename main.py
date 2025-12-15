@@ -14,6 +14,7 @@ def main():
     print("╚═╝└─┘┘└┘┴ ┴└─┘ ┴  ╩ ╩┴ ┴┘└┘┴ ┴└─┘└─┘┴└─")
 
     while True:
+        
         print(Fore.LIGHTCYAN_EX, Style.BRIGHT + "------------------------\n")
         print("1. Create Contact \n2. Update Contact")
         print("3. View Contact \n4. Delete Contact \n5. Search Contact")
