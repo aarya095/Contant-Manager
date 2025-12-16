@@ -168,7 +168,7 @@ def delete_contact(name_input):
 
 @cli.command()
 @click.argument('user_input_for_search')
-def search_name():
+def search_name(user_input_for_search):
     """Search operation to search for a specific name 
     from the list of already existing names and get the contact information"""
 
@@ -249,7 +249,8 @@ def export_contacts_data():
         json.dump(contacts_data_json, f)
     click.echo("\nData exported to contacts.json file successfully!")
         
-def help():
+@cli.command()
+def manual():
     """Provides the user manual"""
 
     click.echo("\n=== APPLICATION MANUAL ===")
