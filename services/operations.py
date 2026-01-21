@@ -4,9 +4,9 @@ import subprocess
 import json
 
 # User-defined modules
-import modules.database as db
-import modules.get_and_validate_user_input as get_and_validate
-import modules.encryption as en
+import services.database as db
+import services.get_and_validate_user_input as get_and_validate
+import services.encryption as en
 
 def create_contact():
     """Creates an entry of contact"""
