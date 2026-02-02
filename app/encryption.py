@@ -30,28 +30,6 @@ def decrypt(encrypted_contact_info, key):
 
     return original_contact_number
 
-def stores_encrypted_contact_num_in_db(encrypted_contact_info, name):
-    """Stores the encrypted_contact_info in the sqlite3 db"""
-
-    conn = db.connect_db()
-
-    cur = conn.cursor()
-    cur.execute("update contacts set number = ? where name = ?", (encrypted_contact_info, name))
-    
-    conn.commit()
-    conn.close()
-
-def stores_encrypted_email_in_db(encrypted_contact_info, name):
-    """Stores the encrypted_contact_info in the sqlite3 db"""
-
-    conn = db.connect_db()
-
-    cur = conn.cursor()
-    cur.execute("update contacts set email = ? where name = ?", (encrypted_contact_info, name))
-
-    conn.commit()
-    conn.close()
-
 def stores_contact_num_key_in_env_file(key, name):
     """Stores the Contact Number key in the .env file"""
 
