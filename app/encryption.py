@@ -22,13 +22,13 @@ def encrypt(contact_info: int | str):
 
     return encrypted_contact_info, key
 
-def decrypt(encrypted_contact_info, key):
+def decrypt(encrypted_contact_data, key):
     """Decrypts the contact number using fernet a symmmetric cipher"""
 
     f = Fernet(key)
-    original_contact_number = f.decrypt(encrypted_contact_info)
+    original_contact_data = f.decrypt(encrypted_contact_data)
 
-    return original_contact_number
+    return original_contact_data
 
 def stores_contact_num_key_in_env_file(key, name):
     """Stores the Contact Number key in the .env file"""

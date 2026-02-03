@@ -219,4 +219,4 @@ def export_contacts_data():
         
 
 if __name__ == '__main__':
-    create_contact("Vikas",1231233, "aarya")
+    create_contact("Aarya", 1231233, "aarya")

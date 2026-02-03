@@ -24,19 +24,36 @@ def view_contacts_table() -> list:
     cur.execute("select * from contacts")
     
     contacts_data = cur.fetchall()
-    print(contacts_data)
+    #print(contacts_data)
 
     cur.close()
     conn.close()
 
     return contacts_data
 
+def get_users() -> list:
+
+    conn = connect_db()
+    cur = conn.cursor()
+    cur.execute("select name from contacts")
+    
+    users = cur.fetchall()
+    #print(contacts_data)
+
+    cur.close()
+    conn.close()
+
+    for user_tuple in users:
+        list_of_users.append(user_tuple[0])
+    
+    return list_of_users
+
 def create_contact_entry_in_db(name, encrypted_number, encrypted_email):
     """Creates an database entry of contact"""
     conn = connect_db()
     cur = conn.cursor()
 
-    cur.execute("insert into contacts (name, number, email) VALUES (%s, %s, %s);", \
+    cur.execute("insert into contacts (name, email, number) VALUES (%s, %s, %s);", \
                 (name, encrypted_number, encrypted_email))    
 
     conn.commit()
@@ -45,10 +62,33 @@ def create_contact_entry_in_db(name, encrypted_number, encrypted_email):
 
 if __name__ == '__main__':
     """Using the below to execute queries in the database"""
-    #view_contacts_table()
-    conn = connect_db()
+
+    users = get_users()
+    list_of_users = []
+    print(users)
+    
+
+    print(list_of_users)
+
+"""    contacts_data = view_contacts_table()
+    #print(contacts_data)
+    contacts_data = contacts_data[1]
+    
+    from app import encryption as en
+    key_for_contact_number = en.retrieve_contact_num_key_from_env_file("aarya")
+    key_for_email = en.retrieve_email_key_from_env_file("aarya")
+
+    print(contacts_data)
+    print(key_for_contact_number)
+    encrypted_contact_data = contacts_data[2]
+    original_data = en.decrypt(encrypted_contact_data=encrypted_contact_data, key=key_for_email)
+    print(original_data)
+"""
+
+"""    conn = connect_db()
     cur = conn.cursor()
     #cur.execute("delete from contacts where name='Vikas';")
+    #cur.execute("ALTER TABLE contacts ADD CONSTRAINT contacts_name_unique UNIQUE ();")
     #cur.execute("ALTER TABLE contacts ADD COLUMN number BYTEA;")
     #data = cur.fetchall()
     #my_tuple = data[0]
@@ -57,4 +97,4 @@ if __name__ == '__main__':
     #print(type(my_tuple[0]))
     conn.commit()
     cur.close()
-    conn.close()
+    conn.close()"""
