@@ -8,7 +8,7 @@ import app.database as db
 import app.get_and_validate_user_input as get_and_validate
 import app.encryption as en
 
-def create_contact(name: str, number: int, email: str) -> str | bytes:
+def create_contact(name: str, number: int, email: str = None) -> str | bytes:
     """Creates an entry of contact"""
     
     list_of_users = db.get_users()
@@ -17,14 +17,38 @@ def create_contact(name: str, number: int, email: str) -> str | bytes:
         encrypted_contact_number, contact_num_key = en.encrypt(number)
         en.stores_contact_num_key_in_env_file(contact_num_key, name)
 
-        encrypted_email, email_key = en.encrypt(email)
-        en.stores_email_key_in_env_file(email_key, name)
+        if email != None:
+            encrypted_email, email_key = en.encrypt(email)
+            en.stores_email_key_in_env_file(email_key, name)
+        else:
+            encrypted_email = email
 
         db.create_contact_entry_in_db(name, encrypted_contact_number, encrypted_email)
     else:
         print("User already exists")
     
     # print(f"Contact for {name_input} created successfully!")
+
+def get_single_contact_data(name: str):
+    """Gets a single contact data about a person from its name"""
+    #Retrieves the contact number and decrypts it via its key in .env file
+    key_for_contact_num = en.retrieve_contact_num_key_from_env_file(name)
+    key_for_email = en.retrieve_email_key_from_env_file(name)
+
+    encrypted_contact_data = db.get_encrypted_contact_data_from_db(name)
+    encrypted_contact_num = encrypted_contact_data[1]
+    encrypted_contact_email = encrypted_contact_data[0]
+    
+    original_contact_num_bytes = en.decrypt(encrypted_contact_num, key_for_contact_num)
+    original_contact_num = int.from_bytes(original_contact_num_bytes, 'big') 
+
+    if key_for_email != None:
+        original_email_bytes = en.decrypt(encrypted_contact_email, key_for_email)
+        original_email = original_email_bytes.decode('utf-8') 
+    else: 
+        original_email = None
+    
+    return original_contact_num, original_email
 
 def view_contact():
     """View existing contacts"""
@@ -224,4 +248,6 @@ def export_contacts_data():
         
 
 if __name__ == '__main__':
-    create_contact("Aarya", 1231233, "aarya")
+    #create_contact("Umeko",934234235)
+    original_contact_num, original_email = get_single_contact_data("Umeko")
+    print(original_contact_num, original_email)
