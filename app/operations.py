@@ -11,13 +11,18 @@ import app.encryption as en
 def create_contact(name: str, number: int, email: str):
     """Creates an entry of contact"""
     
-    encrypted_contact_number, contact_num_key = en.encrypt(number)
-    en.stores_contact_num_key_in_env_file(contact_num_key, name)
+    list_of_users = db.get_users()
+    if name not in list_of_users:
+         
+        encrypted_contact_number, contact_num_key = en.encrypt(number)
+        en.stores_contact_num_key_in_env_file(contact_num_key, name)
 
-    encrypted_email, email_key = en.encrypt(email)
-    en.stores_email_key_in_env_file(email_key, name)
+        encrypted_email, email_key = en.encrypt(email)
+        en.stores_email_key_in_env_file(email_key, name)
 
-    db.create_contact_entry_in_db(name, encrypted_contact_number, encrypted_email)
+        db.create_contact_entry_in_db(name, encrypted_contact_number, encrypted_email)
+    else:
+        return "User name already exists!"
     
     # print(f"Contact for {name_input} created successfully!")
 
