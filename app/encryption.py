@@ -22,7 +22,7 @@ def encrypt(contact_info: int | str):
 
     return encrypted_contact_info, key
 
-def decrypt(encrypted_contact_data, key):
+def decrypt(encrypted_contact_data: bytes, key: bytes):
     """Decrypts the contact number using fernet a symmmetric cipher"""
 
     f = Fernet(key)
@@ -30,7 +30,7 @@ def decrypt(encrypted_contact_data, key):
 
     return original_contact_data
 
-def stores_contact_num_key_in_env_file(key, name):
+def stores_contact_num_key_in_env_file(key: bytes, name: str):
     """Stores the Contact Number key in the .env file"""
 
     name_of_key = f"KEY_OF_{name.upper()}" # Turning to upper case to maintain the format
@@ -40,7 +40,7 @@ def stores_contact_num_key_in_env_file(key, name):
     command = f"dotenv set {name_of_key} {key_str}"
     res = subprocess.run(command, shell=True, capture_output=True)
 
-def stores_email_key_in_env_file(key, name):
+def stores_email_key_in_env_file(key: bytes, name: str):
     """Stores the Email key in the .env file"""
 
     name_of_key = f"KEY_OF_EMAIL_{name.upper()}"
@@ -50,7 +50,7 @@ def stores_email_key_in_env_file(key, name):
     command = f"dotenv set {name_of_key} {key_str}"
     res = subprocess.run(command, shell=True, capture_output=True)
 
-def retrieve_encrypted_number_from_db(name):
+def retrieve_encrypted_number_from_db(name: str):
     """Retrieves the encrypted_contact_number from the sqlite3 db"""
 
     conn = db.connect_db()
@@ -64,7 +64,7 @@ def retrieve_encrypted_number_from_db(name):
 
     return encrypted_contact_number
 
-def retrieve_encrypted_email_from_db(name):
+def retrieve_encrypted_email_from_db(name: str):
     """Retrieves the encrypted_email from the sqlite3 db"""
 
     conn = db.connect_db()
@@ -78,7 +78,7 @@ def retrieve_encrypted_email_from_db(name):
 
     return encrypted_email
 
-def retrieve_contact_num_key_from_env_file(name):
+def retrieve_contact_num_key_from_env_file(name: str):
     """Retrieves the Contact Number key from the .env file"""
 
     name_of_key = f"KEY_OF_{name.upper()}"
@@ -94,7 +94,7 @@ def retrieve_contact_num_key_from_env_file(name):
 
     return key_for_contact_number
 
-def retrieve_email_key_from_env_file(name):
+def retrieve_email_key_from_env_file(name: str):
     """Retrieves th Email key from the .env file"""
 
     name_of_key = f"KEY_OF_EMAIL_{name.upper()}"
@@ -110,7 +110,7 @@ def retrieve_email_key_from_env_file(name):
 
     return key_for_email
 
-def recreate_original_contact_num(name):
+def recreate_original_contact_num(name: str):
     """Takes the key and encrypted contact number and returns the decrypted contact number"""
 
     #Retrieves the contact number and decrypts it via its key in .env file
@@ -124,7 +124,7 @@ def recreate_original_contact_num(name):
 
     return original_contact_num
 
-def recreate_original_email(name):
+def recreate_original_email(name: str):
     """Takes the key and encrypted email and returns the decrypted email"""
     
     #Retrieves the email and decrypts it via its key in .env file

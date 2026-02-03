@@ -8,7 +8,7 @@ import app.database as db
 import app.get_and_validate_user_input as get_and_validate
 import app.encryption as en
 
-def create_contact(name: str, number: int, email: str):
+def create_contact(name: str, number: int, email: str) -> str | bytes:
     """Creates an entry of contact"""
     
     list_of_users = db.get_users()
@@ -22,7 +22,7 @@ def create_contact(name: str, number: int, email: str):
 
         db.create_contact_entry_in_db(name, encrypted_contact_number, encrypted_email)
     else:
-        return "User name already exists!"
+        print("User already exists")
     
     # print(f"Contact for {name_input} created successfully!")
 
