@@ -166,45 +166,6 @@ def delete_contact():
     print(f"\nContact for '{name_input}' deleted successfully!")
     conn.close()
 
-def search_name():
-    """Search operation to search for a specific name 
-    from the list of already existing names and get the contact information"""
-
-    already_existing_names_list = get_and_validate.generate_list_of_already_used_names()
-    if len(already_existing_names_list) == 0:
-        print("No Entries!")
-    else:
-        user_input_for_search = input("Enter the name you want to search: ")
-
-        matched_cases_list = [] # list to store the names where input has matched 
-        for name in already_existing_names_list:
-            # Loops through the already_existing_names_list and matching using re.search function
-            match_case = re.search(user_input_for_search, name, re.IGNORECASE) # Ignoring upper/lower case for better chances       
-            if match_case:
-                matched_cases_list.append(name)
-            if match_case == None:
-                pass
-        if matched_cases_list == []:
-            print("No matches found.")
-
-        conn = db.connect_db()
-        cur = conn.cursor()
-
-        for name in matched_cases_list:
-
-            cur.execute("select * from contacts where name = ?",(name,))
-            contact_data = cur.fetchone()
-            
-            original_contact_num = en.recreate_original_contact_num(contact_data[0])
-            original_email = en.recreate_original_email(contact_data[0])
-
-            print("\nResults:")
-            print(f"\nName: {contact_data[0].title()}")
-            print(f"Contact Number: {original_contact_num}")
-            print(f"Email: {original_email}")
-
-        conn.close()
-
 def remove_unwanted_env_entries(name_input):
     """Removing the keys from .env file""" 
 
