@@ -62,13 +62,16 @@ def view_contact():
     index = 1
     for contact_data in contacts_data:
 
-        original_contact_num = en.recreate_original_contact_num(contact_data[0])
-        original_email = en.recreate_original_email(contact_data[0])
+        key_for_contact_num = en.retrieve_contact_num_key_from_env_file(name)
+        key_for_email = en.retrieve_email_key_from_env_file(name)
 
-        print(f"\n({index})", end='')
-        print(f" Name: {contact_data[0].title()}")
-        print(f"    Contact Number: {original_contact_num}")
-        print(f"    Email: {original_email}")
+        encrypted_contact_data = db.get_encrypted_contact_data_from_db(name)
+        encrypted_contact_num = encrypted_contact_data[1]
+        encrypted_contact_email = encrypted_contact_data[0]
+        
+        original_contact_num_bytes = en.decrypt(encrypted_contact_num, key_for_contact_num)
+        original_contact_num = int.from_bytes(original_contact_num_bytes, 'big') 
+
         index += 1
 
     conn.close()
