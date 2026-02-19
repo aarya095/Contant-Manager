@@ -66,19 +66,19 @@
 
 <h2>CLI Preview</h2>
 <p>Introductory Message</p>
-<img width="600" alt="Intro Message" src="https://github.com/user-attachments/assets/217f540d-c79e-4414-adb5-dc99c8db4697" />
+<img width="500" alt="Intro Message" src="https://github.com/user-attachments/assets/217f540d-c79e-4414-adb5-dc99c8db4697" />
 <p>Create Entry Demo</p>
-<img width="410" alt="Create Entry" src="https://github.com/user-attachments/assets/47ef04ae-1b36-4b84-b79a-7893507a2f04" />
+<img width="310" alt="Create Entry" src="https://github.com/user-attachments/assets/47ef04ae-1b36-4b84-b79a-7893507a2f04" />
 <p>View Entry Demo</p>
-<img width="320" alt="View Entry" src="https://github.com/user-attachments/assets/feb830cd-e1b4-4f75-9468-98c07e76a807" />
+<img width="220" alt="View Entry" src="https://github.com/user-attachments/assets/feb830cd-e1b4-4f75-9468-98c07e76a807" />
 <p>Update Entry Demo</p>
-<img width="420" alt="Update Entry" src="https://github.com/user-attachments/assets/6ff5c4b4-de38-466b-b4cf-2e71fa253378" />
+<img width="320" alt="Update Entry" src="https://github.com/user-attachments/assets/6ff5c4b4-de38-466b-b4cf-2e71fa253378" />
 <p>Delete Entry Demo</p>
-<img width="435"alt="Delete Entry" src="https://github.com/user-attachments/assets/2a1db5bb-37e3-4e9a-90f5-2753c251929e" />
+<img width="335"alt="Delete Entry" src="https://github.com/user-attachments/assets/2a1db5bb-37e3-4e9a-90f5-2753c251929e" />
 <p>Search Demo</p>
-<img width="400" alt="Search Entry" src="https://github.com/user-attachments/assets/a27342ae-a6b7-4982-a661-d38b7f30252d" />
+<img width="300" alt="Search Entry" src="https://github.com/user-attachments/assets/a27342ae-a6b7-4982-a661-d38b7f30252d" />
 <p>Exporting to JSON</p>
-<img width="500" alt="Export JSON" src="https://github.com/user-attachments/assets/f5e02ead-071a-464d-b76a-ff02fc0e220f" />
+<img width="400" alt="Export JSON" src="https://github.com/user-attachments/assets/f5e02ead-071a-464d-b76a-ff02fc0e220f" />
 <pre>[{"Name": "india", "Contact Number": "1231231231", "Email": "india@qwe.qwe"}, 
   {"Name": "kirti", "Contact Number": "6784566544", "Email": "kirti@gotmail.com"}, 
   {"Name": "omkar", "Contact Number": "9874569874", "Email": "omkar_90@hotmail.in"}, 
