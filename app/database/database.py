@@ -67,7 +67,7 @@ def get_encrypted_contact_data_from_db(name: str) -> tuple:
     conn = connect_db()
 
     cur = conn.cursor()
-    cur.execute("select number , email from contacts where name = %s", (name,))
+    cur.execute("select number, email from contacts where name = %s", (name,))
     encrypted_contact_data = cur.fetchone()
 
     cur.close()
