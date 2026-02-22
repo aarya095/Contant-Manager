@@ -160,7 +160,6 @@ python main.py
 
 <hr>
 
-<h2>Author</h2>
 <p>
-<b>Aarya Sarfare</b>
+<b>Author: Aarya Sarfare</b>
 </p>
