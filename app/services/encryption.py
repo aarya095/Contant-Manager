@@ -1,0 +1,31 @@
+# Built-in Modules
+import subprocess
+
+# Third Party Modules
+from cryptography.fernet import Fernet
+
+# User-defined modules
+import app.database.database as db
+
+def encrypt(contact_number: int) -> bytes:
+    """Encrypts the contact number using fernet a symmmetric cipher"""
+
+    contact_number = contact_number.to_bytes(8,'big')
+        
+    key = Fernet.generate_key()
+    f = Fernet(key)
+    encrypted_contact_info = f.encrypt(contact_number)
+
+    return encrypted_contact_info, key
+
+def decrypt(encrypted_contact_number: bytes, key: bytes) -> int:
+    """Decrypts the contact number using fernet a symmmetric cipher"""
+
+    f = Fernet(key)
+    original_contact_number_bytes = f.decrypt(encrypted_contact_number)
+    original_contact_number = int.from_bytes(original_contact_number_bytes, 'big')
+
+    return original_contact_number
+
+if __name__ == '__main__':
+    pass

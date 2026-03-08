@@ -160,7 +160,10 @@ python main.py
 
 <hr>
 
-<h2>Author</h2>
 <p>
+<<<<<<< HEAD:README.md
 <b>Aarya Sarfare</b>
+=======
+<b>Author: Aarya Sarfare</b>
+>>>>>>> api-contact-manager:docs/README.md
 </p>
