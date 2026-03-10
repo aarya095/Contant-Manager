@@ -9,6 +9,5 @@
 
 <p>
 
-<b>Aarya Sarfare</b>
 <b>Author: Aarya Sarfare</b>
 </p>
