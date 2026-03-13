@@ -14,7 +14,7 @@ class Contact(Base):
 
     contact_id : Mapped[int] = mapped_column(primary_key=True)
     contact_name : Mapped[str] = mapped_column(unique=True)
-    contact_number : Mapped[int] = mapped_column(unique=True)
+    contact_number : Mapped[bytes] = mapped_column(unique=True)
 
 if __name__ == '__main__':
     Base.metadata.create_all(engine)
