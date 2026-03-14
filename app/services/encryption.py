@@ -28,4 +28,5 @@ def decrypt(encrypted_contact_number: bytes, key: bytes) -> int:
     return original_contact_number
 
 if __name__ == '__main__':
-    pass
+    encrypted_contact_info, key = encrypt(123456789)
+    print(type(encrypted_contact_info))
