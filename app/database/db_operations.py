@@ -44,4 +44,5 @@ def empty_database_tables(session):
     session.commit()
     
 if __name__ == '__main__':
-    create_contact_db("Aarya",b'gAAAAABptliCAHsPyXXjDcQjqtQLoqwiEaIgZ1ZxiZykUGVk1so4Pr4c30AUM-uOIeJmkXURSzd_VQuaFgEhyzAXvAzTDWoxrg==')
+    #create_contact_db("Aarya",b'gAAAAABptliCAHsPyXXjDcQjqtQLoqwiEaIgZ1ZxiZykUGVk1so4Pr4c30AUM-uOIeJmkXURSzd_VQuaFgEhyzAXvAzTDWoxrg==')
+    view_contacts()
