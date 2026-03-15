@@ -1,9 +1,10 @@
-import sqlite3
+import os
 from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-database_url = f"sqlite:///dev.db"
+load_dotenv()
 
-engine = create_engine(database_url, echo=True)
+DATABASE_URL = os.getenv("DATABASE_URL")
 
 print("Engine created successfully!")
 
