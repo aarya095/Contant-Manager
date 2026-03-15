@@ -6,4 +6,3 @@ txt.py
 .env
 contacts_data.db
 contacts_data.json
-dev.db
