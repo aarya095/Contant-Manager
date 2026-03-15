@@ -14,9 +14,9 @@ def encrypt(contact_number: int) -> bytes:
         
     key = Fernet.generate_key()
     f = Fernet(key)
-    encrypted_contact_info = f.encrypt(contact_number)
+    encrypted_contact_number = f.encrypt(contact_number)
 
-    return encrypted_contact_info, key
+    return encrypted_contact_number, key
 
 def decrypt(encrypted_contact_number: bytes, key: bytes) -> int:
     """Decrypts the contact number using fernet a symmmetric cipher"""
@@ -29,4 +29,4 @@ def decrypt(encrypted_contact_number: bytes, key: bytes) -> int:
 
 if __name__ == '__main__':
     encrypted_contact_info, key = encrypt(123456789)
-    print(type(encrypted_contact_info))
+    print((encrypted_contact_info))

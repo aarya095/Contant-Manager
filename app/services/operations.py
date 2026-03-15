@@ -1,42 +1,12 @@
-from app.database.database import engine
-from app.database.models import Contact
+from app.services.encryption import encrypt
+from app.services.file_operations import stores_contact_num_key_in_env_file
+from app.database.db_operations import create_contact_db
 
-from sqlalchemy.orm import Session, sessionmaker
-from sqlalchemy import select
-
-def create_user():
-
-    with Session(engine) as session:
-        contact1 = Contact(
-            contact_name="spongebob",
-            contact_number=b'gAAAAABptTYnumd8QXeZxekbZkMW5txmcWdYeEc-v-H6ZPMUC9RMRC4uK3qEX2k2Z0BGVYcwXHja7QwVx2RQ7EtBiW0juo6AVA=='
-        )
-
-        session.add(contact1)
-        session.commit()
-
-    print("Entry created")
-
-def view_contacts():
-
-    Session = sessionmaker(bind=engine)
-    session = Session()
-    stmt = select(Contact)
-
-    # Execute the statement and fetch all results
-    results = session.execute(stmt).all()
-    print(results)
-
-    # 3. Process the results
-    for row in results:
-        # row is a Row object, you can access the User object directly
-        contact_entry = row[0]
-        print(contact_entry)
-        print(contact_entry.contact_name, contact_entry.contact_number)
-
-    session.close()
-    print("Code block complete")
+def create_contact(contact_name: str, contact_number: int):
+    """Encrypts the contact number, sends the key to the .env file, and sends the contact data to the database"""
+    encrypted_contact_number, key = encrypt(contact_number)
+    stores_contact_num_key_in_env_file(key, contact_name)
+    create_contact_db(contact_name, encrypted_contact_number)    
 
 if __name__ == '__main__':
-    create_user()
-    view_contacts()
+    create_contact()
