@@ -5,12 +5,11 @@ from app.services import operations as op
 
 router = APIRouter()
 
-@app.get("/")
+@router.get("/")
 def root():
     return "Welcome to Contact Manager"
 
-@router.get("/contacts")
+@router.post("/contacts")
 def create_contact(contact: Contact):
     op.create_contact(contact_name=contact.contact_name, 
                       contact_number=contact.contact_number)
-    return contact
