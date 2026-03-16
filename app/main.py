@@ -1,6 +1,3 @@
-# Third Party Modules
-import validators
-
 from fastapi import FastAPI, HTTPException
 
 from app.schemas import Contact
