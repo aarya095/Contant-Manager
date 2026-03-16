@@ -19,6 +19,3 @@ def create_contact(contact : Contact):
         
         return contact
     
-if __name__ == '__main__':
-    email = "aarya@as.in"
-    print(validators.email(email))
