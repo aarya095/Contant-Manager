@@ -3,7 +3,7 @@
 __pycache__/
 .venv/
 txt.py
-.env
+.env.*
 contacts_data.db
 contacts_data.json
 *.db
