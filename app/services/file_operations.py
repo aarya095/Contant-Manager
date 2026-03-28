@@ -15,7 +15,7 @@ def stores_contact_num_key_in_env_file(key: bytes, name: str):
     key_str = key.decode('utf-8') 
     set_key(dotenv_path=env_file_path, key_to_set=name_of_key, value_to_set=key_str)
 
-def retrieve_contact_num_key_from_env_file(name: str):
+def retrieve_contact_num_key_from_env_file(name: str) -> bytes:
     """Retrieves the Contact Number key from the .env file"""
 
     name_of_key = f"KEY_OF_{name.upper()}"

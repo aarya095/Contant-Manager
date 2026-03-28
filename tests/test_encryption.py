@@ -1,4 +1,3 @@
-import pytest
 from cryptography.fernet import InvalidToken
 
 from app.services import encryption 
