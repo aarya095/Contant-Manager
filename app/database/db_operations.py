@@ -5,6 +5,7 @@ from sqlalchemy.orm import Session, sessionmaker
 from sqlalchemy import select, delete
 
 def create_contact_db(contact_name: str, encrypted_contact_number: bytes):
+    """Create an entry in the database"""
 
     with Session(engine) as session:
 
@@ -14,25 +15,65 @@ def create_contact_db(contact_name: str, encrypted_contact_number: bytes):
 
     print("Entry created")
 
-def view_contacts():
+def check_contact_exists(name_to_check: str):
+    """Retrieves all the contact names via SQLAlchemy and checks if the contact entry exists"""
 
     Session = sessionmaker(bind=engine)
     session = Session()
     stmt = select(Contact)
 
     results = session.execute(stmt).all()
-    print(results)
+    print(f"Result is as follows = {results}\n")
+    list_of_contact_names = []
 
     for row in results:
         # row is a Row object, you can access the User object directly
         contact_entry = row[0]
-        print(contact_entry)
-        print(contact_entry.contact_name, contact_entry.contact_number)
+        list_of_contact_names.append(contact_entry.contact_name)
 
     session.close()
-    print("Code block complete")
 
-def empty_database_tables(session):
+    if name_to_check in list_of_contact_names:
+        return True
+    else:
+        return False
+
+def view_contacts():
+    """Retrieves all the contacts via SQLAlchemy"""
+
+    Session = sessionmaker(bind=engine)
+    session = Session()
+    stmt = select(Contact)
+
+    results = session.execute(stmt).all()
+    session.close()
+
+    return results
+
+def view_contact_by_name(name: str):
+    """Retrieves one contact via SQLAlchemy"""
+
+    if check_contact_exists(name_to_check = name):
+
+        Session = sessionmaker(bind=engine)
+        session = Session()
+        stmt = select(Contact)
+
+        results = session.execute(stmt).all()
+        print(f"Result is as follows = {results}\n")
+
+        for row in results:
+            # row is a Row object, you can access the User object directly
+            contact_entry = row[0]
+            if contact_entry.contact_name == name:
+                return name, contact_entry.contact_number
+
+        session.close()
+
+    else:
+        return f"The contact for {name} doesn't exist!"
+
+def empty_database_tables():
 
     Session = sessionmaker(bind=engine)
     session = Session() 
@@ -44,5 +85,7 @@ def empty_database_tables(session):
     session.commit()
     
 if __name__ == '__main__':
-    create_contact_db("Aarya",b'gAAAAABptliCAHsPyXXjDcQjqtQLoqwiEaIgZ1ZxiZykUGVk1so4Pr4c30AUM-uOIeJmkXURSzd_VQuaFgEhyzAXvAzTDWoxrg==')
-    #view_contacts()
+    #create_contact_db("Aarya",b'gAAAAABptliCAHsPyXXjDcQjqtQLoqwiEaIgZ1ZxiZykUGVk1so4Pr4c30AUM-uOIeJmkXURSzd_VQuaFgEhyzAXvAzTDWoxrg==')
+    #results = view_contacts()
+    #print(results)
+    empty_database_tables()
