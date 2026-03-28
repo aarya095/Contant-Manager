@@ -24,7 +24,7 @@ def create_contact(contact: ContactEntry):
     contact_name = op.create_contact(contact_name=contact.contact_name, 
                       contact_number=contact.contact_number)
     
-    if contact_name == contact.contact_name:
+    if contact_name == "Null":
+        return {"Error": f"The entry for {contact.contact_name} already exist!"}
+    else:
         return {"Message": f"The entry for {contact_name} created successfully!"}
-    elif contact_name == "Null":
-        return {"Error": f"The entry for {contact_name} already exist!"}
