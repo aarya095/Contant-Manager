@@ -1,6 +1,6 @@
-from app.services.encryption import encrypt
-from app.services.file_operations import stores_contact_num_key_in_env_file
-from app.database.db_operations import create_contact_db
+from app.services.encryption import encrypt, decrypt
+from app.services import file_operations as f_ops
+from app.database import db_operations as db_ops
 
 def create_contact(contact_name: str, contact_number: int):
     """Encrypts the contact number, sends the key to the .env file, and sends the contact data to the database"""
@@ -8,8 +8,24 @@ def create_contact(contact_name: str, contact_number: int):
     contact_name = contact_name.lower() # Normalizing the contact name
 
     encrypted_contact_number, key = encrypt(contact_number)
-    stores_contact_num_key_in_env_file(key, contact_name)
-    create_contact_db(contact_name, encrypted_contact_number)    
+    f_ops.stores_contact_num_key_in_env_file(key, contact_name)
+    db_ops.create_contact_db(contact_name, encrypted_contact_number)
+
+def view_one_contact_entry(contact_name: str) -> str | int:
+
+    encrypted_contact_number = db_ops.view_contact_by_name(name = contact_name.lower())
+
+    if encrypted_contact_number != "Null":
+        key_for_contact_number = f_ops.retrieve_contact_num_key_from_env_file(contact_name)
+        original_contact_number = decrypt(
+            encrypted_contact_number = encrypted_contact_number, 
+            key = key_for_contact_number)
+        
+        return original_contact_number
+    
+    elif encrypted_contact_number == "Null":
+        return "Null"
+    
 
 if __name__ == '__main__':
     create_contact()

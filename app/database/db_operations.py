@@ -69,12 +69,12 @@ def view_contact_by_name(name: str):
             # row is a Row object, you can access the User object directly
             contact_entry = row[0]
             if contact_entry.contact_name == name:
-                return name, contact_entry.contact_number
+                return contact_entry.contact_number
 
         session.close()
 
     elif contact_exists == False:
-        return name, "Null"
+        return "Null"
 
 def empty_database_tables():
 
