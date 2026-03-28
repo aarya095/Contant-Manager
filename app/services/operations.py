@@ -6,10 +6,16 @@ def create_contact(contact_name: str, contact_number: int):
     """Encrypts the contact number, sends the key to the .env file, and sends the contact data to the database"""
 
     contact_name = contact_name.lower() # Normalizing the contact name
+    contact_exists = db_ops.check_contact_exists(contact_name)
 
-    encrypted_contact_number, key = encrypt(contact_number)
-    f_ops.stores_contact_num_key_in_env_file(key, contact_name)
-    db_ops.create_contact_db(contact_name, encrypted_contact_number)
+    if contact_exists == False:
+        encrypted_contact_number, key = encrypt(contact_number)
+        f_ops.stores_contact_num_key_in_env_file(key, contact_name)
+        db_ops.create_contact_db(contact_name, encrypted_contact_number)
+        return contact_name
+
+    elif contact_exists == True:
+        return "Null"
 
 def view_one_contact_entry(contact_name: str) -> str | int:
 
