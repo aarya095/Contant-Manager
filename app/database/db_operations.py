@@ -53,7 +53,10 @@ def view_contacts():
 def view_contact_by_name(name: str):
     """Retrieves one contact via SQLAlchemy"""
 
-    if check_contact_exists(name_to_check = name):
+    contact_exists = check_contact_exists(name_to_check = name)
+    print(contact_exists)
+
+    if contact_exists:
 
         Session = sessionmaker(bind=engine)
         session = Session()
@@ -70,8 +73,8 @@ def view_contact_by_name(name: str):
 
         session.close()
 
-    else:
-        return f"The contact for {name} doesn't exist!"
+    elif contact_exists == False:
+        return name, "Null"
 
 def empty_database_tables():
 
@@ -85,7 +88,10 @@ def empty_database_tables():
     session.commit()
     
 if __name__ == '__main__':
-    #create_contact_db("Aarya",b'gAAAAABptliCAHsPyXXjDcQjqtQLoqwiEaIgZ1ZxiZykUGVk1so4Pr4c30AUM-uOIeJmkXURSzd_VQuaFgEhyzAXvAzTDWoxrg==')
+    #create_contact_db("aarya",b'gAAAAABptliCAHsPyXXjDcQjqtQLoqwiEaIgZ1ZxiZykUGVk1so4Pr4c30AUM-uOIeJmkXURSzd_VQuaFgEhyzAXvAzTDWoxrg==')
     #results = view_contacts()
     #print(results)
-    empty_database_tables()
+    #empty_database_tables()
+
+    name, contact_number = view_contact_by_name("vikas")
+    print(name, contact_number)
