@@ -3,8 +3,9 @@ import os
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
-env_file = ".env.main"
-load_dotenv(dotenv_path=env_file)
+env_file_path = ".env.main"
+
+load_dotenv(dotenv_path=env_file_path)
 
 DATABASE_URL = os.getenv("DATABASE_URL")
 
